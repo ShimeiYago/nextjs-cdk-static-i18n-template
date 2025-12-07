@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "front"
+    "front",
+    "cdk"
   ],
   "scripts": {
     "dev:front": "npm --prefix front run dev",
     "build:front": "npm --prefix front run build",
-    "shadcn:add": "npm --prefix front run shadcn:add"
+    "shadcn:add": "npm --prefix front run shadcn:add",
+    "deploy:cdk": "npm --workspace cdk run deploy"
   }
 }
