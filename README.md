@@ -35,3 +35,8 @@ Running commands from the root keeps the lockfile consistent and avoids manually
 
 The CDK deployment prints the CloudFront domain and S3 bucket name as stack outputs; use them for verification or DNS troubleshooting.
 
+### Destroying the stack
+
+- Run `npm run destroy:cdk` to tear down the CloudFront distribution, S3 bucket, and supporting Route53/CERT resources.
+- CDK will prompt for confirmation; add `-- --force` after the command if you need to skip the prompt (for example `npm run destroy:cdk -- --force`).
+

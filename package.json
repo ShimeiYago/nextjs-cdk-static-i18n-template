@@ -10,6 +10,7 @@
     "dev:front": "npm --prefix front run dev",
     "build:front": "npm --prefix front run build",
     "shadcn:add": "npm --prefix front run shadcn:add",
-    "deploy:cdk": "npm --workspace cdk run deploy"
+    "deploy:cdk": "npm --workspace cdk run deploy",
+    "destroy:cdk": "npm --workspace cdk exec -- npx aws-cdk destroy"
   }
 }
