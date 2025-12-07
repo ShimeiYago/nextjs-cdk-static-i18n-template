@@ -5,6 +5,11 @@ import Image from "next/image";
 export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Home" });
+  const localeOptions = ["en", "ja"] as const;
+  const localeLabels: Record<(typeof localeOptions)[number], string> = {
+    en: "English",
+    ja: "日本語",
+  };
   const resourceDescription = t.rich("resourceDescription", {
     templatesLink: (chunks) => (
       <a
@@ -25,7 +30,23 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
   });
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="relative flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <nav className="absolute right-6 top-6 flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-sm font-medium backdrop-blur dark:border-white/20 dark:bg-black/60">
+        {localeOptions.map((option) => (
+          <a
+            key={option}
+            href={`/${option}`}
+            className={`transition-colors ${
+              option === locale
+                ? "text-black dark:text-white"
+                : "text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white"
+            }`}
+            aria-current={option === locale ? "page" : undefined}
+          >
+            {localeLabels[option]}
+          </a>
+        ))}
+      </nav>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
           className="dark:invert"
