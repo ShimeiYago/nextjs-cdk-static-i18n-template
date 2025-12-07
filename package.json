@@ -1,0 +1,12 @@
+{
+  "name": "nextjs-cdk-static-i18n-template",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "front"
+  ],
+  "scripts": {
+    "dev:front": "npm --prefix front run dev",
+    "build:front": "npm --prefix front run build"
+  }
+}
