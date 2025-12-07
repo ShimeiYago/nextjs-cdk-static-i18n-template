@@ -1,0 +1,8 @@
+{
+  "Home": {
+    "heroTitle": "To get started, edit the page.tsx file.",
+    "resourceDescription": "Looking for a starting point or more instructions? Head over to <templatesLink>Templates</templatesLink> or the <learningLink>Learning</learningLink> center.",
+    "documentation": "Documentation",
+    "deployNow": "Deploy Now"
+  }
+}
