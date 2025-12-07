@@ -1,4 +1,8 @@
 {
+  "Metadata": {
+    "title": "Next アプリを作成",
+    "description": "create next app によって生成されました"
+  },
   "Home": {
     "heroTitle": "まずは page.tsx ファイルを編集してスタートしましょう。",
     "resourceDescription": "始め方や詳しい手順を探していますか？<templatesLink>テンプレート</templatesLink> か <learningLink>ラーニングセンター</learningLink> をチェックしてください。",
