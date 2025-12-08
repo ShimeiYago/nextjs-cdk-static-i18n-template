@@ -28,7 +28,7 @@ export class CdkStack extends Stack {
   constructor(scope: Construct, id: string, props: SiteStackProps) {
     super(scope, id, props);
 
-    const { domainName, hostedZoneDomain, certificateArn } = props.siteConfig;
+    const { domainName, hostedZoneDomain, certificateArn, siteNameKey } = props.siteConfig;
 
     if (!domainName.endsWith(hostedZoneDomain)) {
       throw new Error(
@@ -110,6 +110,7 @@ export class CdkStack extends Stack {
     });
 
     const distribution = new cloudfront.Distribution(this, 'SiteDistribution', {
+      comment: siteNameKey,
       defaultRootObject: 'index.html',
       domainNames: [domainName],
       certificate,

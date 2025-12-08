@@ -12,7 +12,7 @@ const env = {
 
 const siteConfig = loadSiteConfig();
 
-new CdkStack(app, 'CdkStack', {
+new CdkStack(app, `${siteConfig.siteNameKey}-CdkStack`, {
   env,
   siteConfig,
 });

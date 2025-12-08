@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 export type SiteConfig = {
+  siteNameKey: string;
   domainName: string;
   hostedZoneDomain: string;
   certificateArn?: string;
@@ -18,6 +19,10 @@ export function loadSiteConfig(configPath: string = DEFAULT_CONFIG_PATH): SiteCo
 
   const parsed = JSON.parse(readFileSync(path, 'utf8')) as Partial<SiteConfig>;
 
+  if (!parsed.siteNameKey) {
+    throw new Error('site-config.json must specify "siteNameKey".');
+  }
+
   if (!parsed.domainName) {
     throw new Error('site-config.json must specify "domainName".');
   }
@@ -27,6 +32,7 @@ export function loadSiteConfig(configPath: string = DEFAULT_CONFIG_PATH): SiteCo
   }
 
   return {
+    siteNameKey: parsed.siteNameKey,
     domainName: parsed.domainName,
     hostedZoneDomain: parsed.hostedZoneDomain,
     certificateArn: parsed.certificateArn,

@@ -1,4 +1,5 @@
 {
+  "siteNameKey": "Example",
   "domainName": "www.example.com",
   "hostedZoneDomain": "example.com"
 }
